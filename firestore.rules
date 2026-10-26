@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Anyone visiting the site can log a pageview, but only the signed-in
+    // admin can read the raw list (that's what powers /admin.html).
+    match /visits/{doc} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // Same pattern for click events (button clicks, ad clicks/impressions).
+    match /events/{doc} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // Ad config: publicly readable so the landing page can show the ad,
+    // but only the signed-in admin can change it.
+    match /config/{doc} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}

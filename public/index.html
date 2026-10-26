@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>nothing. — Pick one. You can't undo it.</title>
+<meta name="description" content="A single choice: see nothing, or pay to see everything. A minimalist, one-page interactive art piece. You can't undo it from here." />
+<meta name="keywords" content="nothing, minimalist art, interactive art piece, one page website, digital art experience, see everything, pay to see" />
+<meta name="author" content="nothing." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0a0a0a" />
+<link rel="canonical" href="https://nothing-82f21.web.app/" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nothing-82f21.web.app/" />
+<meta property="og:site_name" content="nothing." />
+<meta property="og:title" content="nothing. — Pick one. You can't undo it." />
+<meta property="og:description" content="A single choice: see nothing, or pay to see everything. A minimalist, one-page interactive art piece." />
+<meta property="og:image" content="https://nothing-82f21.web.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="nothing. — Pick one. You can't undo it." />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="nothing. — Pick one. You can't undo it." />
+<meta name="twitter:description" content="A single choice: see nothing, or pay to see everything." />
+<meta name="twitter:image" content="https://nothing-82f21.web.app/og-image.png" />
+<meta name="twitter:image:alt" content="nothing. — Pick one. You can't undo it." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "nothing.",
+  "url": "https://nothing-82f21.web.app/",
+  "description": "A single choice: see nothing, or pay to see everything. A minimalist, one-page interactive art piece.",
+  "image": "https://nothing-82f21.web.app/og-image.png",
+  "publisher": {
+    "@type": "Organization",
+    "name": "nothing.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nothing-82f21.web.app/icon-512.png"
+    }
+  }
+}
+</script>
+
+<!-- Favicons / App Icons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="mask-icon" href="logo.svg" color="#0a0a0a" />
+<link rel="manifest" href="site.webmanifest" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="impact-site-verification" value="e120c7c5-495f-472c-a591-b5a558b0f4ed">
+<link rel="stylesheet" href="style.css" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5271137719829070"
+     crossorigin="anonymous"></script>
+
+<!-- Firebase (analytics + admin panel + custom ads) -->
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/1.0.37/ua-parser.min.js"></script>
+<script src="firebase-init.js"></script>
+</head>
+<body>
+
+  <!-- ================= LOADER ================= -->
+  <div id="loader" class="loader">
+    <div class="loader-rule"><div id="loaderFill" class="loader-fill"></div></div>
+    <div id="loaderWord" class="loader-word" aria-hidden="true">nothing.</div>
+  </div>
+
+  <!-- ================= LANDING (two doors) ================= -->
+  <main id="landing" class="landing hidden">
+    <h1 class="mark">nothing<span class="dot">.</span></h1>
+    <p class="prompt">Pick one. You can't undo it from here.</p>
+    <div class="doors">
+      <button id="seeNothingBtn" class="door door-nothing" type="button">
+        <span class="door-label">See nothing</span>
+      </button>
+      <div class="everything-wrap">
+        <button id="seeEverythingBtn" class="door door-everything" type="button" aria-expanded="false" aria-controls="payPanel">
+          <span class="door-label" id="everythingLabel">Unlock everything</span>
+          <span class="door-price" id="everythingPrice">₹1</span>
+        </button>
+
+        <div id="payPanel" class="pay-panel hidden">
+          <p class="pay-panel-label">Pay with</p>
+          <a id="payRazorpay" class="pay-option" href="#" rel="noopener">
+            Razorpay <span class="pay-sub">Cards · UPI · Netbanking</span>
+          </a>
+          <a id="payPaypal" class="pay-option" href="#" rel="noopener">
+            PayPal <span class="pay-sub">Cards · PayPal balance</span>
+          </a>
+          <a id="payPaytm" class="pay-option" href="#" rel="noopener">
+            Paytm <span class="pay-sub">UPI · Wallet · Cards</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="price-note">Optional. The ₹1 unlock simply reveals a dark page with one word. Nothing else is sold or hidden.</p>
+
+    <footer class="site-footer">
+      <a href="about.html">About &amp; contact</a>
+      <span aria-hidden="true">·</span>
+      <a href="privacy.html">Privacy policy</a>
+    </footer>
+  </main>
+
+  <!-- ================= NOTHING VIEW ================= -->
+  <div id="viewNothing" class="view view-nothing hidden" role="img" aria-label="An entirely white room.">
+    <button class="leave-btn leave-btn--dark" id="leaveNothingBtn" type="button" aria-label="Leave">←</button>
+  </div>
+
+  <!-- ================= EVERYTHING VIEW ================= -->
+  <div id="viewEverything" class="view view-everything hidden">
+    <button class="leave-btn leave-btn--light" id="leaveEverythingBtn" type="button" aria-label="Leave">←</button>
+    <div class="everything-word">Everything</div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="analytics.js"></script>
+  <script src="ads.js"></script>
+</body>
+</html>

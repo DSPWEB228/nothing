@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>nothing. — admin</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="favicon.ico" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css" />
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="firebase-init.js"></script>
+</head>
+<body>
+
+  <div id="loginScreen" class="login-screen">
+    <form id="loginForm" class="login-form">
+      <h1>nothing<span>. admin</span></h1>
+      <input type="email" id="loginEmail" placeholder="Email" autocomplete="username" required />
+      <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required />
+      <button type="submit">Sign in</button>
+      <p id="loginError" class="login-error"></p>
+    </form>
+  </div>
+
+  <div id="dashboard" class="dashboard hidden">
+    <header class="dash-header">
+      <h1>nothing<span>. admin</span></h1>
+      <div>
+        <button id="refreshBtn">Refresh</button>
+        <button id="downloadCsvBtn">Download CSV</button>
+        <button id="logoutBtn">Sign out</button>
+      </div>
+    </header>
+
+    <section class="stat-cards">
+      <div class="stat-card"><span id="statTotalVisits">–</span><label>Total visits</label></div>
+      <div class="stat-card"><span id="statToday">–</span><label>Visits today</label></div>
+      <div class="stat-card"><span id="statNothingClicks">–</span><label>See nothing clicks</label></div>
+      <div class="stat-card"><span id="statEverythingClicks">–</span><label>Unlock everything clicks</label></div>
+      <div class="stat-card"><span id="statPaidClicks">–</span><label>Payment link clicks</label></div>
+      <div class="stat-card"><span id="statAdClicks">–</span><label>Ad clicks</label></div>
+    </section>
+
+    <section class="breakdowns">
+      <div class="breakdown"><h2>By country</h2><table id="tableCountry"><tbody></tbody></table></div>
+      <div class="breakdown"><h2>By device</h2><table id="tableDevice"><tbody></tbody></table></div>
+      <div class="breakdown"><h2>By OS</h2><table id="tableOS"><tbody></tbody></table></div>
+      <div class="breakdown"><h2>By browser</h2><table id="tableBrowser"><tbody></tbody></table></div>
+      <div class="breakdown"><h2>By page</h2><table id="tablePage"><tbody></tbody></table></div>
+      <div class="breakdown"><h2>By referrer</h2><table id="tableReferrer"><tbody></tbody></table></div>
+    </section>
+
+    <section class="ad-manager">
+      <h2>Custom ad slot</h2>
+      <p class="hint">Fill this in and enable it to show your own image ad (instead of AdSense) on the landing page. Leave it disabled to keep showing AdSense.</p>
+      <label><input type="checkbox" id="adEnabled" /> Enabled</label>
+      <input type="text" id="adImageUrl" placeholder="Image URL (https://...)" />
+      <input type="text" id="adLinkUrl" placeholder="Click-through URL (https://...)" />
+      <input type="text" id="adAltText" placeholder="Alt text (for accessibility / SEO)" />
+      <button id="saveAdBtn">Save ad</button>
+      <p id="adSaveStatus" class="save-status"></p>
+    </section>
+
+    <section class="recent">
+      <h2>Recent visits (latest 500)</h2>
+      <div class="table-scroll">
+        <table id="tableVisits">
+          <thead><tr><th>Time</th><th>Page</th><th>Country</th><th>Device</th><th>OS</th><th>Browser</th><th>Referrer</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
